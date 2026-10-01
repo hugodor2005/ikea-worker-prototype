@@ -1,230 +1,385 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clock It — IKEA Capstone Project</title>
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Clock It — IKEA Capstone Project</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <nav class="nav">
-    <a href="#home" class="nav__brand">Clock It</a>
-    <div class="nav__links">
-      <a href="#home" >Home</a>
-      <a href="#problem">Problem</a>
-      <a href="#solution">Solution</a>
-      <a href="#demo">Demo</a>
-      <a href="#impact">Impact</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+    <!-- ---------- Navigation ---------- -->
 
-  <header class="hero" id= "home">
-    <div>
-      <div class="hero__kicker">TEK830 · Digital Innovation Prototype</div>
-      <h1>Clock it.<br>Speak <span>up.</span></h1>
-      <p>An anonymous feedback feature built into the clock-out systems IKEA's suppliers already use — turning every shift's end into a chance to surface working-condition issues before they become risks.</p>
-      
-    </div>
+    <nav class="nav">
+        <a href="#home" class="nav__brand">Clock It</a>
 
-    <div class="stamp" aria-hidden="true">
-      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="110" cy="110" r="100" fill="none" stroke="#D89B4A" stroke-width="3"/>
-        <circle cx="110" cy="110" r="84" fill="none" stroke="#D89B4A" stroke-width="1" stroke-dasharray="2 6"/>
-        <line x1="110" y1="110" x2="110" y2="55" stroke="#F3F1EA" stroke-width="4" stroke-linecap="round"/>
-        <line x1="110" y1="110" x2="150" y2="110" stroke="#F3F1EA" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="110" cy="110" r="5" fill="#D89B4A"/>
-        <text x="110" y="185" text-anchor="middle" fill="#F3F1EA" font-family="Big Shoulders Display, sans-serif" font-size="22" font-weight="700" letter-spacing="2">OUT</text>
-      </svg>
-    </div>
-  </header>
-  <section class="section">
-    <div class="section__head">
-      <div class="section__eyebrow">How it works</div>
-      <h2>From clock-out to action</h2>
-      <p>
-        A simple three-step process that turns the end of a shift
-        into an opportunity for anonymous feedback.
-      </p>
-    </div>
-  
-    <div class="process">
-  
-      <div class="process__card">
-        <div class="process__step">STEP 01</div>
-        <h3>Clock out</h3>
-        <p>
-          The worker finishes their shift and clocks out using
-          the system already available at the workplace.
-        </p>
-      </div>
-  
-      <div class="process__arrow">→</div>
-  
-      <div class="process__card">
-        <div class="process__step">STEP 02</div>
-        <h3>Speak up</h3>
-        <p>
-          The worker gets the opportunity to leave anonymous
-          feedback about their working conditions.
-        </p>
-      </div>
-  
-      <div class="process__arrow">→</div>
-  
-      <div class="process__card">
-        <div class="process__step">STEP 03</div>
-        <h3>Take action</h3>
-        <p>
-          The feedback reaches the relevant manager through
-          the dashboard and can be acted upon.
-        </p>
-      </div>
-  
-    </div>
-  </section>
-  <section class="section" id="video">
-  <section class="section section--cream" id="problem">
-
-    <div class="section__head" id= "problem">
-        <h2>The Problem</h2>
-
-        <p>
-            Traditional supplier audits provide valuable insights,
-            but they may not capture every issue workers experience
-            in their daily working environment.
-        </p>
-    </div>
-
-    <div class="section__content">
-        <h3>Why does this matter?</h3>
-
-        <p>
-            Identifying issues related to working hours, wages,
-            workplace safety and treatment is essential for
-            improving working conditions across IKEA's supply chain.
-        </p>
-    </div>
-
-  </section>
-  <section class="section section--blue" id="solution">
-
-    <div class="section__head">
-        <h2>Our Solution</h2>
-
-        <p>
-            Clock It integrates a simple feedback feature
-            into the clock-out process at IKEA's suppliers.
-        </p>
-    </div>
-
-    <div class="section__content">
-        <h3>How does it work?</h3>
-
-        <p>
-            Workers can provide anonymous feedback about
-            their working conditions at the end of their shifts.
-        </p>
-
-        <p>
-            The collected information is organized in a dashboard,
-            helping IKEA's Sustainability and Compliance Manager
-            identify patterns and potential concerns.
-        </p>
-    </div>
-
-  </section>
-
-  <section class="section" id="demo">
-    <div class="section__head">
-      <h2>See it in action</h2>
-      <p>A short demo of a worker clocking out, leaving feedback, and that feedback landing on the compliance manager's dashboard.</p>
-    </div>
-    <div class="video-frame">
-      <!-- Replace this block with an <video> or embedded iframe once the video is ready -->
-      <div class="video-frame__play">
-        <svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <span>Project video — coming soon</span>
-    </div>
-  </section>
-
-  <section class="section section--cream" id="impact">
-
-    <div class="section__head">
-        <h2>Sustainability & Impact</h2>
-
-        <p>
-            Explore the potential social, environmental
-            and economic impacts of Clock It.
-        </p>
-    </div>
-
-    <!-- Add your sustainability evaluation here -->
-
-  </section>
-
-  <footer class="footer" id="contact">
-    <div class="footer__head">
-      <h2>Meet the team</h2>
-    </div>
-
-    <div class="team">
-      <div class="team__card">
-        <div class="team__avatar">PG</div>
-        <div class="team__name">Pontus Gustafsson</div>
-        <div class="team__links">
-          <a href="mailto:pontg@chalmers.se" aria-label="Email">pontg@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
+        <div class="nav__links">
+            <a href="#home">Home</a>
+            <a href="#problem">Problem</a>
+            <a href="#solution">Solution</a>
+            <a href="#process">Process</a>
+            <a href="#demo">Demo</a>
+            <a href="#impact">Impact</a>
+            <a href="#contact">Contact</a>
         </div>
-      </div>
-      <div class="team__card">
-        <div class="team__avatar">H</div>
-        <div class="team__name">Hugo Dörrich</div>
-        <div class="team__links">
-          <a href="mailto:hugodor@chalmers.se" aria-label="Email">hugodor@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
-        </div>
-      </div>
-      <div class="team__card">
-        <div class="team__avatar">E</div>
-        <div class="team__name">Emil Ström</div>
-        <div class="team__links">
-          <a href="mailto:emilstro@chalmers.se" aria-label="Email">emilstro@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
-        </div>
-      </div>
-      <div class="team__card">
-        <div class="team__avatar">E</div>
-        <div class="team__name">Ella Linlökken</div>
-        <div class="team__links">
-          <a href="mailto:ellalinl@chalmers.se" aria-label="Email">ellalinl@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
-        </div>
-      </div>
-      <div class="team__card">
-        <div class="team__avatar">E</div>
-        <div class="team__name">Raghib Hussain</div>
-        <div class="team__links">
-          <a href="mailto:raghib@chalmers.se" aria-label="Email">raghib@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
-        </div>
-      </div>
-      <div class="team__card">
-        <div class="team__avatar">E</div>
-        <div class="team__name">Ghazal Davari</div>
-        <div class="team__links">
-          <a href="mailto:ghazald@chalmers.se" aria-label="Email">ghazald@chalmers.se<svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
-        </div>
-      </div>
-    </div>
+    </nav>
 
-    <div class="footer__bottom">
-      <div class="footer__school">CHALMERS</div>
-      <div class="footer__course">TEK830 — Sustainable digitalization in practice · Group 4 · IKEA Capstone Project</div>
-    </div>
-  </footer>
+
+    <!-- ---------- Home / Hero ---------- -->
+
+    <header class="hero" id="home">
+
+        <div>
+            <div class="hero__kicker">
+                TEK830 · Digital Innovation Prototype
+            </div>
+
+            <h1>Clock it.<br>Speak <span>up.</span></h1>
+
+            <p>
+                An anonymous feedback feature built into the
+                clock-out systems IKEA's suppliers already use —
+                turning every shift's end into a chance to surface
+                working-condition issues before they become risks.
+            </p>
+        </div>
+
+        <div class="stamp" aria-hidden="true">
+            <svg viewBox="0 0 220 220"
+                 xmlns="http://www.w3.org/2000/svg">
+
+                <circle cx="110" cy="110" r="100"
+                        fill="none" stroke="#D89B4A"
+                        stroke-width="3"/>
+
+                <circle cx="110" cy="110" r="84"
+                        fill="none" stroke="#D89B4A"
+                        stroke-width="1"
+                        stroke-dasharray="2 6"/>
+
+                <line x1="110" y1="110"
+                      x2="110" y2="55"
+                      stroke="#F3F1EA"
+                      stroke-width="4"
+                      stroke-linecap="round"/>
+
+                <line x1="110" y1="110"
+                      x2="150" y2="110"
+                      stroke="#F3F1EA"
+                      stroke-width="4"
+                      stroke-linecap="round"/>
+
+                <circle cx="110" cy="110" r="5"
+                        fill="#D89B4A"/>
+
+                <text x="110" y="185"
+                      text-anchor="middle"
+                      fill="#F3F1EA"
+                      font-family="Big Shoulders Display, sans-serif"
+                      font-size="22"
+                      font-weight="700"
+                      letter-spacing="2">OUT</text>
+            </svg>
+        </div>
+
+    </header>
+
+
+    <!-- ---------- The Problem ---------- -->
+
+    <section class="section section--cream" id="problem">
+
+        <div class="section__head">
+            <h2>The Problem</h2>
+
+            <p>
+                Traditional supplier audits provide valuable insights,
+                but they may not capture every issue workers experience
+                in their daily working environment.
+            </p>
+        </div>
+
+        <div class="section__content">
+            <h3>Why does this matter?</h3>
+
+            <p>
+                Identifying issues related to working hours, wages,
+                workplace safety and treatment is essential for
+                improving working conditions across IKEA's supply chain.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- ---------- Our Solution ---------- -->
+
+    <section class="section section--blue" id="solution">
+
+        <div class="section__head">
+            <h2>Our Solution</h2>
+
+            <p>
+                Clock It integrates a simple feedback feature
+                into the clock-out process at IKEA's suppliers.
+            </p>
+        </div>
+
+        <div class="section__content">
+            <h3>How does it work?</h3>
+
+            <p>
+                Workers can provide anonymous feedback about
+                their working conditions at the end of their shifts.
+            </p>
+
+            <p>
+                The collected information is organized in a dashboard,
+                helping IKEA's Sustainability and Compliance Manager
+                identify patterns and potential concerns.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- ---------- How It Works / Process ---------- -->
+
+    <section class="section section--cream" id="process">
+
+        <div class="section__head">
+            <h2>From clock-out to action</h2>
+
+            <p>
+                A simple three-step process that turns the end
+                of a shift into an opportunity for anonymous feedback.
+            </p>
+        </div>
+
+        <div class="process">
+
+            <!-- Step 1 -->
+
+            <div class="process__card">
+                <div class="process__step">STEP 01</div>
+
+                <h3>Clock out</h3>
+
+                <p>
+                    The worker finishes their shift and clocks out
+                    using the system already available at the workplace.
+                </p>
+            </div>
+
+            <div class="process__arrow" aria-hidden="true">→</div>
+
+            <!-- Step 2 -->
+
+            <div class="process__card">
+                <div class="process__step">STEP 02</div>
+
+                <h3>Speak up</h3>
+
+                <p>
+                    The worker gets the opportunity to leave anonymous
+                    feedback about their working conditions.
+                </p>
+            </div>
+
+            <div class="process__arrow" aria-hidden="true">→</div>
+
+            <!-- Step 3 -->
+
+            <div class="process__card">
+                <div class="process__step">STEP 03</div>
+
+                <h3>Take action</h3>
+
+                <p>
+                    The feedback reaches the relevant manager through
+                    the dashboard and can be acted upon.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ---------- Demo ---------- -->
+
+    <section class="section" id="demo">
+
+        <div class="section__head">
+            <h2>See it in action</h2>
+
+            <p>
+                A short demo of a worker clocking out, leaving
+                feedback, and that feedback landing on the
+                compliance manager's dashboard.
+            </p>
+        </div>
+
+        <div class="video-frame">
+
+            <!-- Replace with a video or iframe when ready -->
+
+            <div class="video-frame__play">
+                <svg viewBox="0 0 24 24" fill="#F3F1EA">
+                    <path d="M8 5v14l11-7z"/>
+                </svg>
+            </div>
+
+            <span>Project video — coming soon</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- ---------- Sustainability & Impact ---------- -->
+
+    <section class="section section--cream" id="impact">
+
+        <div class="section__head">
+            <h2>Sustainability & Impact</h2>
+
+            <p>
+                Explore the potential social, environmental
+                and economic impacts of Clock It.
+            </p>
+        </div>
+
+
+    </section>
+
+
+    <!-- ---------- Footer / Team ---------- -->
+
+    <footer class="footer" id="contact">
+
+        <div class="footer__head">
+            <h2>Meet the team</h2>
+        </div>
+
+        <div class="team">
+
+            <!-- Pontus -->
+
+            <div class="team__card">
+                <div class="team__avatar">PG</div>
+
+                <div class="team__name">Pontus Gustafsson</div>
+
+                <div class="team__links">
+                    <a href="mailto:pontg@chalmers.se"
+                       aria-label="Email Pontus">
+                        pontg@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hugo -->
+
+            <div class="team__card">
+                <div class="team__avatar">HD</div>
+
+                <div class="team__name">Hugo Dörrich</div>
+
+                <div class="team__links">
+                    <a href="mailto:hugodor@chalmers.se"
+                       aria-label="Email Hugo">
+                        hugodor@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+            <!-- Emil -->
+
+            <div class="team__card">
+                <div class="team__avatar">ES</div>
+
+                <div class="team__name">Emil Ström</div>
+
+                <div class="team__links">
+                    <a href="mailto:emilstro@chalmers.se"
+                       aria-label="Email Emil">
+                        emilstro@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ella -->
+
+            <div class="team__card">
+                <div class="team__avatar">EL</div>
+
+                <div class="team__name">Ella Linlökken</div>
+
+                <div class="team__links">
+                    <a href="mailto:ellalinl@chalmers.se"
+                       aria-label="Email Ella">
+                        ellalinl@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+            <!-- Raghib -->
+
+            <div class="team__card">
+                <div class="team__avatar">RH</div>
+
+                <div class="team__name">Raghib Hussain</div>
+
+                <div class="team__links">
+                    <a href="mailto:raghib@chalmers.se"
+                       aria-label="Email Raghib">
+                        raghib@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ghazal -->
+
+            <div class="team__card">
+                <div class="team__avatar">GD</div>
+
+                <div class="team__name">Ghazal Davari</div>
+
+                <div class="team__links">
+                    <a href="mailto:ghazald@chalmers.se"
+                       aria-label="Email Ghazal">
+                        ghazald@chalmers.se
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Footer information -->
+
+        <div class="footer__bottom">
+
+            <div class="footer__school">CHALMERS</div>
+
+            <div class="footer__course">
+                TEK830 — Sustainable digitalization in practice ·
+                Group 4 · IKEA Capstone Project
+            </div>
+
+        </div>
+
+    </footer>
 
 </body>
 </html>
