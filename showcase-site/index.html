@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clock It — IKEA Capstone Project</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#161F38;
+    --ink-soft:#232E52;
+    --ink-line:rgba(255,255,255,0.14);
+    --cream:#F6F4EF;
+    --cream-line:rgba(22,31,56,0.12);
+    --text-light:#F3F1EA;
+    --text-light-dim:#AEB4CC;
+    --text-dark:#1B2238;
+    --text-dark-dim:#5B6178;
+    --amber:#D89B4A;
+    --amber-deep:#B97A2E;
+    --radius:10px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter', sans-serif;
+    background:var(--cream);
+    color:var(--text-dark);
+  }
+  h1,h2,h3{
+    font-family:'Big Shoulders Display', sans-serif;
+    margin:0;
+    line-height:0.95;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+
+  :focus-visible{
+    outline:3px solid var(--amber);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 6vw;
+    background:var(--ink);
+    border-bottom:1px solid var(--ink-line);
+  }
+  .nav__brand{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:800;
+    font-size:28px;
+    color:var(--text-light);
+    letter-spacing:0.02em;
+  }
+  .nav__tag{
+    font-size:13px;
+    color:var(--text-light-dim);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--text-light);
+    padding:9vh 6vw 10vh;
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .hero__kicker{
+    font-size:14px;
+    color:var(--amber);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(48px, 7vw, 92px);
+    font-weight:800;
+    color:var(--text-light);
+  }
+  .hero h1 span{color:var(--amber);}
+  .hero p{
+    max-width:46ch;
+    margin-top:26px;
+    font-size:18px;
+    line-height:1.6;
+    color:var(--text-light-dim);
+  }
+  .hero__actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:38px;
+  }
+  .btn{
+    font-family:'Inter', sans-serif;
+    font-weight:600;
+    font-size:16px;
+    padding:15px 28px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    display:inline-block;
+    cursor:pointer;
+    border:1.5px solid transparent;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn--primary{
+    background:var(--amber);
+    color:var(--ink);
+  }
+  .btn--primary:hover{background:var(--amber-deep);}
+  .btn--ghost{
+    background:transparent;
+    border-color:var(--ink-line);
+    color:var(--text-light);
+  }
+  .btn--ghost:hover{border-color:var(--amber);}
+
+  /* Hero stamp graphic */
+  .stamp{
+    justify-self:center;
+    width:min(100%, 320px);
+  }
+  .stamp svg{width:100%;height:auto;}
+
+  /* ---------- Video section ---------- */
+  .section{
+    padding:10vh 6vw;
+  }
+  .section__head{
+    max-width:60ch;
+    margin:0 auto 48px;
+    text-align:center;
+  }
+  .section__eyebrow{
+    color:var(--amber-deep);
+    font-weight:600;
+    font-size:14px;
+  }
+  .section__head h2{
+    font-size:clamp(32px, 4vw, 48px);
+    font-weight:700;
+    margin-top:10px;
+    color:var(--text-dark);
+  }
+  .section__head p{
+    margin-top:16px;
+    font-size:17px;
+    line-height:1.6;
+    color:var(--text-dark-dim);
+  }
+
+  .video-frame{
+    max-width:900px;
+    margin:0 auto;
+    aspect-ratio:16/9;
+    border-radius:var(--radius);
+    border:2px dashed var(--cream-line);
+    background:#EDEAE2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:var(--text-dark-dim);
+  }
+  .video-frame__play{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .video-frame__play svg{width:22px;height:22px;}
+  .video-frame span{font-size:14px;letter-spacing:0.02em;}
+
+  /* ---------- Footer / Team ---------- */
+  .footer{
+    background:var(--ink);
+    color:var(--text-light);
+    padding:10vh 6vw 6vh;
+  }
+  .footer__head{
+    text-align:center;
+    margin-bottom:48px;
+  }
+  .footer__head h2{
+    font-size:clamp(30px, 4vw, 44px);
+    color:var(--text-light);
+  }
+  .team{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:28px;
+    max-width:1000px;
+    margin:0 auto;
+  }
+  .team__card{
+    background:var(--ink-soft);
+    border:1px solid var(--ink-line);
+    border-radius:var(--radius);
+    padding:22px 18px;
+    text-align:center;
+  }
+  .team__avatar{
+    width:64px;height:64px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background:var(--amber);
+    color:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:22px;
+  }
+  .team__name{
+    font-weight:600;
+    font-size:15px;
+  }
+  .team__links{
+    margin-top:10px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+  }
+  .team__links a{
+    width:30px;height:30px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .team__links svg{width:14px;height:14px;}
+
+  .footer__bottom{
+    margin-top:64px;
+    padding-top:32px;
+    border-top:1px solid var(--ink-line);
+    text-align:center;
+    color:var(--text-light-dim);
+  }
+  .footer__school{
+    font-family:'Big Shoulders Display', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--text-light);
+    letter-spacing:0.03em;
+  }
+  .footer__course{
+    margin-top:6px;
+    font-size:13px;
+    letter-spacing:0.02em;
+  }
+
+  @media (max-width:800px){
+    .hero{grid-template-columns:1fr;}
+    .stamp{order:-1; width:180px;}
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__brand">Clock It</div>
+    <div class="nav__tag">IKEA Capstone — Group 4</div>
+    <div class="hero__actions">
+      <a href="#" class="btn btn--ghost">See Home</a>
+      <a href="#" class="btn btn--ghost">See Dashboard</a>
+      <a href="#" class="btn btn--ghost">See Forum</a>
+      <a href="#" class="btn btn--ghost">See Kiosk</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="hero__kicker">TEK830 · Digital Innovation Prototype</div>
+      <h1>Clock it.<br>Speak <span>up.</span></h1>
+      <p>An anonymous feedback feature built into the clock-out systems IKEA's suppliers already use — turning every shift's end into a chance to surface working-condition issues before they become risks.</p>
+      
+    </div>
+
+    <div class="stamp" aria-hidden="true">
+      <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="110" cy="110" r="100" fill="none" stroke="#D89B4A" stroke-width="3"/>
+        <circle cx="110" cy="110" r="84" fill="none" stroke="#D89B4A" stroke-width="1" stroke-dasharray="2 6"/>
+        <line x1="110" y1="110" x2="110" y2="55" stroke="#F3F1EA" stroke-width="4" stroke-linecap="round"/>
+        <line x1="110" y1="110" x2="150" y2="110" stroke="#F3F1EA" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="110" cy="110" r="5" fill="#D89B4A"/>
+        <text x="110" y="185" text-anchor="middle" fill="#F3F1EA" font-family="Big Shoulders Display, sans-serif" font-size="22" font-weight="700" letter-spacing="2">OUT</text>
+      </svg>
+    </div>
+  </header>
+
+  <section class="section" id="video">
+    <div class="section__head">
+      <div class="section__eyebrow">Walkthrough</div>
+      <h2>See it in action</h2>
+      <p>A short demo of a worker clocking out, leaving feedback, and that feedback landing on the compliance manager's dashboard.</p>
+    </div>
+    <div class="video-frame">
+      <!-- Replace this block with an <video> or embedded iframe once the video is ready -->
+      <div class="video-frame__play">
+        <svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <span>Project video — coming soon</span>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__head">
+      <h2>Meet the team</h2>
+    </div>
+
+    <!-- Replace names/initials below with your actual team members -->
+    <div class="team">
+      <div class="team__card">
+        <div class="team__avatar">PG</div>
+        <div class="team__name">Pontus Gustafsson</div>
+        <div class="team__links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.1 21 13.5V23h-4v-8.2c0-2-.03-4.56-2.78-4.56-2.78 0-3.2 2.17-3.2 4.42V23h-4V8z"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
+        </div>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">H</div>
+        <div class="team__name">Hugo</div>
+        <div class="team__links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.1 21 13.5V23h-4v-8.2c0-2-.03-4.56-2.78-4.56-2.78 0-3.2 2.17-3.2 4.42V23h-4V8z"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
+        </div>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">E</div>
+        <div class="team__name">Emil</div>
+        <div class="team__links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.1 21 13.5V23h-4v-8.2c0-2-.03-4.56-2.78-4.56-2.78 0-3.2 2.17-3.2 4.42V23h-4V8z"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
+        </div>
+      </div>
+      <div class="team__card">
+        <div class="team__avatar">E</div>
+        <div class="team__name">Ella</div>
+        <div class="team__links">
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05C19.9 8 21 10.1 21 13.5V23h-4v-8.2c0-2-.03-4.56-2.78-4.56-2.78 0-3.2 2.17-3.2 4.42V23h-4V8z"/></svg></a>
+          <a href="#" aria-label="Email"><svg viewBox="0 0 24 24" fill="#F3F1EA"><path d="M2 4h20v16H2V4zm2 2.4V18h16V6.4l-8 6-8-6z"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__school">CHALMERS</div>
+      <div class="footer__course">TEK830 — Digitalization and AI in practice · Group 4 · IKEA Capstone Project</div>
+    </div>
+  </footer>
+
+</body>
+</html>
