@@ -318,20 +318,6 @@ footer {
         font-weight: 700;
     }
 
-    @media (max-width: 800px) {
-        .process {
-            flex-direction: column;
-            gap: 14px;
-        }
-
-        .process__card {
-            width: 100%;
-        }
-
-        .process__arrow {
-            transform: rotate(90deg);
-        }
-    }
   /* ---------- Footer / Team ---------- */
   .footer{
     background:var(--ink);
@@ -353,21 +339,7 @@ footer {
     max-width:1000px;
     margin:0 auto;
   }
-  /* Tablets */
 
-    @media (max-width: 800px) {
-        .team {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    /* Mobile */
-
-    @media (max-width: 500px) {
-        .team {
-            grid-template-columns: 1fr;
-        }
-    }
   .team__card{
     background:var(--ink-soft);
     border:1px solid var(--ink-line);
@@ -404,13 +376,30 @@ footer {
     justify-content:center;
     gap:10px;
   }
-  .team__links a{
-    width:30px;height:30px;
-    border-radius:6px;
-    background:rgba(255,255,255,0.08);
-    display:flex;align-items:center;justify-content:center;
+  .team__links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    min-height: 36px;
+    padding: 8px 12px;
+
+    border-radius: 6px;
+    background: rgba(255,255,255,0.08);
+
+    color: var(--text-light);
+    font-size: 12px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition: background 0.2s ease;
   }
-  .team__links svg{width:14px;height:14px;}
+
+  .team__links a:hover {
+      background: var(--amber);
+      color: var(--ink);
+  }
 
   .footer__bottom{
     margin-top:64px;
@@ -431,8 +420,54 @@ footer {
     font-size:13px;
     letter-spacing:0.02em;
   }
+  /* Tablets */
 
   @media (max-width:800px){
     .hero{grid-template-columns:1fr;}
     .stamp{order:-1; width:180px;}
+
+    .team {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+    .process {
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .process__card {
+      width: 100%;
+    }
+
+    .process__arrow {
+      transform: rotate(90deg);
+    }
+
+      .nav {
+        flex-direction: column;
+        gap: 18px;
+        padding: 16px 4vw;
+    }
+
+    .nav__links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .nav__links a {
+        font-size: 13px;
+    }
+
   }
+  
+  /* Mobile */
+
+  @media (max-width: 500px) {
+      .team {
+          grid-template-columns: 1fr;
+      }
+  }
+
+
