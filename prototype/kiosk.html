@@ -1,147 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>IKEA Worker Feedback Kiosk</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f1">
+  <title>Clock It | Worker feedback prototype</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="app-container">
-        
-        <!-- Upgraded Premium Header -->
-        <header class="app-header">
-            <div class="brand-group">
-                <svg class="ikea-logo" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="100" height="40" fill="#0058a3" rx="4"/>
-                    <ellipse cx="50" cy="20" rx="45" ry="16" fill="#ffcc00"/>
-                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="20" fill="#0058a3" letter-spacing="1">IKEA</text>
-                </svg>
-                <div class="brand-divider"></div>
-                <div class="header-titles">
-                    <div class="header-text">Worker Voice</div>
-                    <div class="sub-brand">Powered by SyncTime™</div>
-                </div>
-            </div>
-            <div class="clock-out-badge">
-                <span class="pulse"></span> Clock-Out Logged
-            </div>
-        </header>
-
-        <div id="form-scroll-area" class="screen active">
-            <div class="hero-section">
-                <h1 class="greeting">How was your shift today?</h1>
-                <p class="subtitle">Your feedback is strictly anonymous and helps improve your workplace.</p>
-                
-                <div class="button-group smileys">
-                    <button onclick="handleRating('positive')" class="smiley-btn" id="btn-pos">
-                        <span class="emoji">😀</span>
-                        <span class="label">Good</span>
-                    </button>
-                    <button onclick="handleRating('neutral')" class="smiley-btn" id="btn-neu">
-                        <span class="emoji">😐</span>
-                        <span class="label">Okay</span>
-                    </button>
-                    <button onclick="handleRating('negative')" class="smiley-btn" id="btn-neg">
-                        <span class="emoji">☹️</span>
-                        <span class="label">Bad</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Detailed Questions -->
-            <div id="detailed-questions" class="hidden">
-                <h2 class="section-title">Please share more details:</h2>
-                
-                <!-- Excessive Overtime -->
-                <div class="question-block">
-                    <div class="question-header">
-                        <div class="icon-box">⏱️</div>
-                        <h3>Have you worked more than the 48-hour weekly limit?</h3>
-                    </div>
-                    <div class="button-group options">
-                        <button onclick="handleToggle('overtime', 'Yes')" class="category-btn" id="overtime-yes">Yes</button>
-                        <button onclick="handleToggle('overtime', 'No')" class="category-btn" id="overtime-no">No</button>
-                    </div>
-                    <div id="overtime-text-container" class="hidden text-container">
-                        <textarea id="overtime-details" rows="3" placeholder="Tap to add details (Optional)..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Unsafe Environment -->
-                <div class="question-block">
-                    <div class="question-header">
-                        <div class="icon-box">⚠️</div>
-                        <h3>Did you experience an unsafe environment today?</h3>
-                    </div>
-                    <div class="button-group options">
-                        <button onclick="handleToggle('safety', 'Yes')" class="category-btn" id="safety-yes">Yes</button>
-                        <button onclick="handleToggle('safety', 'No')" class="category-btn" id="safety-no">No</button>
-                    </div>
-                    <div id="safety-text-container" class="hidden text-container">
-                        <textarea id="safety-details" rows="3" placeholder="Tap to add details (Optional)..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Wage Problems -->
-                <div class="question-block">
-                    <div class="question-header">
-                        <div class="icon-box">💰</div>
-                        <h3>Are you experiencing wage problems or delays?</h3>
-                    </div>
-                    <div class="button-group options">
-                        <button onclick="handleToggle('wages', 'Yes')" class="category-btn" id="wages-yes">Yes</button>
-                        <button onclick="handleToggle('wages', 'No')" class="category-btn" id="wages-no">No</button>
-                    </div>
-                    <div id="wages-text-container" class="hidden text-container">
-                        <textarea id="wages-details" rows="3" placeholder="Tap to add details (Optional)..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Harassment / Discrimination -->
-                <div class="question-block">
-                    <div class="question-header">
-                        <div class="icon-box">🤝</div>
-                        <h3>Did you face harassment or discrimination?</h3>
-                    </div>
-                    <div class="button-group options">
-                        <button onclick="handleToggle('harassment', 'Yes')" class="category-btn" id="harassment-yes">Yes</button>
-                        <button onclick="handleToggle('harassment', 'No')" class="category-btn" id="harassment-no">No</button>
-                    </div>
-                    <div id="harassment-text-container" class="hidden text-container">
-                        <textarea id="harassment-details" rows="3" placeholder="Tap to add details (Optional)..."></textarea>
-                    </div>
-                </div>
-
-                <!-- Other -->
-                <div class="question-block">
-                    <div class="question-header">
-                        <div class="icon-box">📝</div>
-                        <h3>Do you have any other issues to report?</h3>
-                    </div>
-                    <div class="button-group options">
-                        <button onclick="handleToggle('other', 'Yes')" class="category-btn" id="other-yes">Yes</button>
-                        <button onclick="handleToggle('other', 'No')" class="category-btn" id="other-no">No</button>
-                    </div>
-                    <div id="other-text-container" class="hidden text-container">
-                        <textarea id="other-details" rows="3" placeholder="Tap to add details (Optional)..."></textarea>
-                    </div>
-                </div>
-
-                <button onclick="submitFinalReport()" class="submit-btn full-width">Submit Report</button>
-            </div>
+<body class="kiosk-page">
+  <a class="skip-link" href="#form-scroll-area">Skip to feedback</a>
+  <div id="app-container">
+    <header class="app-header">
+      <a class="wordmark" href="../showcase-site/index.html" aria-label="Clock It course prototype home"><span class="logo-dot">C</span><span>clock<span class="brand-blue">it</span></span></a>
+      <div class="header-context"><span class="status-dot"></span> After your shift</div>
+    </header>
+    <main id="form-scroll-area" class="screen active">
+      <div class="page-intro">
+        <p class="eyebrow">WORKER VOICE · AFTER YOUR SHIFT</p>
+        <h1 class="greeting">How was your shift today?</h1>
+        <p class="subtitle">Sharing is your choice. You can skip now or leave any question blank.</p>
+      </div>
+      <aside class="demo-banner" role="note"><strong>Your choice.</strong> This concept stores submitted feedback in this browser on this device only. Please do not enter names or identifying details.</aside>
+      <section class="rating-panel" aria-labelledby="rating-title">
+        <h2 id="rating-title">Overall, how did work feel?</h2>
+        <div class="button-group smileys" role="group" aria-label="Choose how your shift felt">
+          <button type="button" onclick="handleRating('positive')" class="smiley-btn" id="btn-pos" aria-label="Good shift"><span class="emoji" aria-hidden="true">☺</span><span class="label">Good</span></button>
+          <button type="button" onclick="handleRating('neutral')" class="smiley-btn" id="btn-neu" aria-label="Okay shift"><span class="emoji" aria-hidden="true">😐</span><span class="label">Okay</span></button>
+          <button type="button" onclick="handleRating('negative')" class="smiley-btn" id="btn-neg" aria-label="Difficult shift"><span class="emoji" aria-hidden="true">☹</span><span class="label">Difficult</span></button>
         </div>
-
-        <!-- Confirmation Screen -->
-        <div id="screen-thanks" class="screen hidden">
-            <div class="thanks-content">
-                <div class="success-icon">✓</div>
-                <h1 class="greeting">Thank you!</h1>
-                <p class="subtitle">Your feedback has been securely recorded.</p>
-            </div>
+      </section>
+      <section id="detailed-questions" class="details-panel hidden" aria-labelledby="details-title">
+        <div class="section-heading"><span>OPTIONAL · ABOUT 1 MINUTE</span><h2 id="details-title">Anything you want to flag?</h2><p>Choose yes or no. You may leave every item unanswered.</p></div>
+        <div class="question-grid">
+          <article class="question-block"><h3>Too much overtime?</h3><p>Have you had more overtime than felt manageable this week?</p><div class="button-group options" role="group" aria-label="Overtime concern"><button type="button" onclick="handleToggle('overtime','Yes')" class="category-btn" id="overtime-yes">Yes</button><button type="button" onclick="handleToggle('overtime','No')" class="category-btn" id="overtime-no">No</button></div><div id="overtime-text-container" class="hidden text-container"><label for="overtime-details">Optional note</label><textarea id="overtime-details" rows="2" maxlength="240" placeholder="Please avoid names or identifying details"></textarea></div></article>
+          <article class="question-block"><h3>Workplace safety?</h3><p>Did you notice something that felt unsafe?</p><div class="button-group options" role="group" aria-label="Safety concern"><button type="button" onclick="handleToggle('safety','Yes')" class="category-btn" id="safety-yes">Yes</button><button type="button" onclick="handleToggle('safety','No')" class="category-btn" id="safety-no">No</button></div><div id="safety-text-container" class="hidden text-container"><label for="safety-details">Optional note</label><textarea id="safety-details" rows="2" maxlength="240" placeholder="Please avoid names or identifying details"></textarea></div></article>
+          <article class="question-block"><h3>Pay concern?</h3><p>Any issue with wages or payment timing?</p><div class="button-group options" role="group" aria-label="Pay concern"><button type="button" onclick="handleToggle('wages','Yes')" class="category-btn" id="wages-yes">Yes</button><button type="button" onclick="handleToggle('wages','No')" class="category-btn" id="wages-no">No</button></div><div id="wages-text-container" class="hidden text-container"><label for="wages-details">Optional note</label><textarea id="wages-details" rows="2" maxlength="240" placeholder="Please avoid names or identifying details"></textarea></div></article>
+          <article class="question-block"><h3>Fair treatment?</h3><p>Did you experience unfair treatment or harassment?</p><div class="button-group options" role="group" aria-label="Fair treatment concern"><button type="button" onclick="handleToggle('harassment','Yes')" class="category-btn" id="harassment-yes">Yes</button><button type="button" onclick="handleToggle('harassment','No')" class="category-btn" id="harassment-no">No</button></div><div id="harassment-text-container" class="hidden text-container"><label for="harassment-details">Optional note</label><textarea id="harassment-details" rows="2" maxlength="240" placeholder="Please avoid names or identifying details"></textarea></div></article>
+          <article class="question-block question-wide"><h3>Something else?</h3><p>Is there another work issue you would like to mention?</p><div class="button-group options" role="group" aria-label="Other concern"><button type="button" onclick="handleToggle('other','Yes')" class="category-btn" id="other-yes">Yes</button><button type="button" onclick="handleToggle('other','No')" class="category-btn" id="other-no">No</button></div><div id="other-text-container" class="hidden text-container"><label for="other-details">Optional note</label><textarea id="other-details" rows="2" maxlength="240" placeholder="Please avoid names or identifying details"></textarea></div></article>
         </div>
-
-    </div>
-    <script src="app.js"></script>
+        <div class="submit-row"><p>Your answers in this demo stay in this browser.</p><button type="button" onclick="submitFinalReport()" class="submit-btn">Submit demo feedback</button></div>
+      </section>
+      <div class="skip-row"><button type="button" class="skip-button" onclick="skipFeedback()">Skip feedback</button><span>No answers are saved when you skip.</span></div>
+    </main>
+    <section id="screen-thanks" class="screen hidden thanks-screen" aria-live="polite" aria-labelledby="thanks-title"><div class="thanks-content"><span class="success-icon" aria-hidden="true">✓</span><p class="eyebrow">DEMO COMPLETE</p><h1 id="thanks-title" class="greeting">Thank you for taking a moment.</h1><p id="thanks-copy" class="subtitle">Your demo answers were saved in this browser only.</p><button type="button" class="reset-btn" onclick="resetKiosk()">Start again</button></div></section>
+    <footer class="kiosk-footer"><span>Clock It · TEK830 Team 4</span><a href="../showcase-site/index.html">About this concept</a><span>Optional · worker-led feedback</span></footer>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>

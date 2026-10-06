@@ -1,306 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IKEA Worker Feedback Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
-    color: #222;
-  }
-  header {
-    background: #0058a3;
-    color: white;
-    padding: 18px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand { display: flex; align-items: center; gap: 16px; }
-  .logo {
-    width: 62px; height: 62px; border-radius: 50%;
-    background: #ffda1a; color: #0058a3;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 900; font-size: 17px;
-  }
-  header h1 { margin: 0; font-size: 24px; }
-  header p { margin: 4px 0 0; opacity: .85; }
-  .period {
-    background: white; color: #333; border: 0;
-    border-radius: 6px; padding: 10px 14px;
-    font-size: 14px;
-  }
-  main { padding: 26px 32px; max-width: 1500px; margin: auto; }
-  .notice {
-    background: #fff8d9;
-    border-left: 5px solid #ffda1a;
-    padding: 12px 16px;
-    margin-bottom: 22px;
-    border-radius: 4px;
-    font-size: 13px;
-  }
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    margin-bottom: 22px;
-  }
-  .card {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 1px 5px rgba(0,0,0,.08);
-  }
-  .card .label { color: #666; font-size: 13px; margin-bottom: 10px; }
-  .value { font-size: 31px; font-weight: 700; }
-  .change { margin-top: 7px; font-size: 13px; }
-  .positive { color: #238636; }
-  .negative { color: #c62828; }
-  .neutral { color: #777; }
-  .grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 20px;
-    margin-bottom: 22px;
-  }
-  .panel {
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 1px 5px rgba(0,0,0,.08);
-  }
-  .panel h2 { font-size: 18px; margin: 0 0 4px; }
-  .sub { color: #777; font-size: 12px; margin-bottom: 16px; }
-  .chart-wrap { height: 300px; }
-  .smiley-list { display: flex; flex-direction: column; gap: 18px; margin-top: 20px; }
-  .smiley-row {
-    display: grid;
-    grid-template-columns: 45px 1fr 55px;
-    align-items: center;
-    gap: 10px;
-  }
-  .face { font-size: 30px; text-align: center; }
-  .bar {
-    height: 12px; background: #eee; border-radius: 20px; overflow: hidden;
-  }
-  .fill { height: 100%; border-radius: 20px; }
-  .good { background: #4caf50; width: 68%; }
-  .okay { background: #f5c542; width: 22%; }
-  .bad { background: #e05252; width: 10%; }
-  .filters {
-    display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;
-  }
-  .filters button {
-    border: 1px solid #ddd; background: white; padding: 9px 14px;
-    border-radius: 5px; cursor: pointer;
-  }
-  .filters button.active { background: #0058a3; color: white; border-color: #0058a3; }
-  table { width: 100%; border-collapse: collapse; }
-  th, td { padding: 13px 10px; border-bottom: 1px solid #eee; text-align: left; }
-  th { color: #666; font-size: 12px; text-transform: uppercase; }
-  .tag {
-    display: inline-block; padding: 5px 9px; border-radius: 12px;
-    font-size: 12px; font-weight: 600;
-  }
-  .high { background: #ffe0e0; color: #a52222; }
-  .medium { background: #fff1c7; color: #7b5a00; }
-  .low { background: #def5e3; color: #23723b; }
-  .insights {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-  }
-  .insight {
-    border-left: 4px solid #0058a3;
-    background: #f7faff;
-    padding: 15px;
-  }
-  .insight strong { display: block; margin-bottom: 5px; }
-  footer { text-align: center; color: #777; padding: 15px; font-size: 12px; }
-  @media(max-width: 900px) {
-    .cards { grid-template-columns: repeat(2,1fr); }
-    .grid { grid-template-columns: 1fr; }
-    .insights { grid-template-columns: 1fr; }
-  }
-  @media(max-width: 550px) {
-    main { padding: 18px; }
-    .cards { grid-template-columns: 1fr; }
-    header { padding: 15px; }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f1">
+  <title>Clock It | Manager overview prototype</title>
+  <link rel="stylesheet" href="dashboard.css">
 </head>
-<body>
+<body class="dashboard-page">
+  <a class="skip-link" href="#main">Skip to overview</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="wordmark" href="../showcase-site/index.html"><span class="logo-dot">C</span><span>clock<span>it</span></span></a>
+      <div class="workspace-label">CONCEPT VIEW <span>VIETNAM</span></div>
+      <nav aria-label="Dashboard sections">
+        <a class="nav-link active" href="#overview"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#patterns"><span>◷</span> Worker signals</a>
+        <a class="nav-link" href="#follow-up"><span>↗</span> Follow-up</a>
+      </nav>
+      <div class="sidebar-bottom"><a href="../showcase-site/index.html">← About the concept</a></div>
+    </aside>
+    <main id="main" class="main-content">
+      <header class="topbar"><div><p class="eyebrow">CHALLENGE 4 · VIETNAM</p><h1>Worker voice overview</h1></div><div class="profile-chip"><span>TEK830</span><b>Team 4</b></div></header>
+      <div class="demo-notice" role="note"><strong>Example view.</strong> Figures below illustrate one possible reporting layout; no worker or supplier data is connected. Reports are prompts for review, not proof of conditions.</div>
+      <section id="overview" class="metric-grid" aria-label="Overview metrics">
+        <article class="metric-card"><div class="metric-top"><span>Feedback responses</span><span class="metric-icon blue">↗</span></div><strong>4,286</strong><p>Last 30 days</p><small>Responses submitted</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Participation rate</span><span class="metric-icon yellow">◎</span></div><strong>42%</strong><p>Of eligible shifts</p><small>Participation should be read with context</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Signals for review</span><span class="metric-icon coral">!</span></div><strong>12</strong><p>Open follow-ups</p><small>Cases awaiting review</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Median first review</span><span class="metric-icon green">◷</span></div><strong>6 days</strong><p>Median time to first review</p><small>Review time does not mean resolved</small></article>
+      </section>
+      <section id="patterns" class="content-grid">
+        <article class="panel trend-panel"><div class="panel-heading"><div><p class="eyebrow">WEEKLY TREND</p><h2>Shift sentiment over time</h2><p>Share of submitted ratings</p></div><span class="period-pill">Last 30 days</span></div>
+          <div class="chart-legend"><span><i class="legend-good"></i>Good</span><span><i class="legend-okay"></i>Okay</span><span><i class="legend-hard"></i>Difficult</span></div>
+          <div class="chart-scroll"><svg class="trend-chart" viewBox="0 0 720 250" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Shift sentiment trend</title><desc id="chart-desc">Rating shares over six weeks.</desc><g class="grid-lines"><path d="M52 25H700M52 75H700M52 125H700M52 175H700M52 225H700"/><path d="M52 25V225M182 25V225M312 25V225M442 25V225M572 25V225M700 25V225"/></g><g class="axis-labels"><text x="13" y="30">100%</text><text x="23" y="80">75%</text><text x="23" y="130">50%</text><text x="23" y="180">25%</text><text x="37" y="230">0%</text><text x="45" y="246">W1</text><text x="175" y="246">W2</text><text x="305" y="246">W3</text><text x="435" y="246">W4</text><text x="565" y="246">W5</text><text x="690" y="246">W6</text></g><path class="area-good" d="M52 25 C100 35 136 34 182 39 S267 49 312 43 S401 46 442 38 S524 34 572 38 S652 33 700 30 L700 225 L52 225Z"/><path class="line-good" d="M52 48 C100 55 136 52 182 59 S267 67 312 63 S401 65 442 57 S524 51 572 57 S652 52 700 49"/><path class="line-okay" d="M52 145 C110 139 130 135 182 131 S260 126 312 130 S390 131 442 137 S525 139 572 133 S657 141 700 139"/><path class="line-hard" d="M52 190 C100 186 138 184 182 180 S270 179 312 183 S402 184 442 188 S525 186 572 183 S647 184 700 187"/><g class="points"><circle cx="52" cy="48" r="4"/><circle cx="182" cy="59" r="4"/><circle cx="312" cy="63" r="4"/><circle cx="442" cy="57" r="4"/><circle cx="572" cy="57" r="4"/><circle cx="700" cy="49" r="4"/></g></svg></div>
 
-<header>
-  <div class="brand">
-    <div class="logo">IKEA</div>
-    <div>
-      <h1>Worker Feedback Dashboard</h1>
-      <p>Supplier workplace experience overview</p>
-    </div>
+        </article>
+        <article class="panel sentiment-panel"><div class="panel-heading"><div><p class="eyebrow">RATINGS</p><h2>Ratings submitted</h2><p>Share of submitted responses</p></div></div><div class="sentiment-row"><div class="sentiment-label"><span>☺</span> Good <b>68%</b></div><div class="track"><i class="fill fill-good" style="width:68%"></i></div></div><div class="sentiment-row"><div class="sentiment-label"><span>😐</span> Okay <b>22%</b></div><div class="track"><i class="fill fill-okay" style="width:22%"></i></div></div><div class="sentiment-row"><div class="sentiment-label"><span>☹</span> Difficult <b>10%</b></div><div class="track"><i class="fill fill-hard" style="width:10%"></i></div></div><div class="context-note"><b>Read with care</b><p>Ratings show only who chose to respond. They do not represent every worker.</p></div></article>
+      </section>
+      <section class="panel issue-panel"><div class="panel-heading"><div><p class="eyebrow">ISSUE SIGNALS</p><h2>Signals mentioned</h2><p>Categories raised in worker feedback</p></div></div><div class="filters" role="group" aria-label="Filter issue signals"><button class="filter active" type="button" data-filter="all" aria-pressed="true">All categories</button><button class="filter" type="button" data-filter="hours" aria-pressed="false">Working hours</button><button class="filter" type="button" data-filter="safety" aria-pressed="false">Safety</button><button class="filter" type="button" data-filter="pay" aria-pressed="false">Pay</button><button class="filter" type="button" data-filter="treatment" aria-pressed="false">Fair treatment</button></div><div class="table-scroll"><table><thead><tr><th>Signal category</th><th>Mentions</th><th>Share of comments</th><th>Review cue</th></tr></thead><tbody id="signal-rows"><tr data-category="hours"><td><span class="category-dot dot-hours"></span>Working hours</td><td>326</td><td>27.8%</td><td><span class="priority priority-high">Review promptly</span></td></tr><tr data-category="safety"><td><span class="category-dot dot-safety"></span>Workplace safety</td><td>284</td><td>24.2%</td><td><span class="priority priority-high">Review promptly</span></td></tr><tr data-category="treatment"><td><span class="category-dot dot-treatment"></span>Fair treatment</td><td>241</td><td>20.5%</td><td><span class="priority priority-medium">Review context</span></td></tr><tr data-category="pay"><td><span class="category-dot dot-pay"></span>Pay or payment timing</td><td>188</td><td>16.0%</td><td><span class="priority priority-medium">Review context</span></td></tr><tr data-category="other"><td><span class="category-dot dot-other"></span>Other concerns</td><td>134</td><td>11.4%</td><td><span class="priority priority-low">Explore pattern</span></td></tr></tbody></table></div></section>
+      <section id="follow-up" class="panel followup-panel"><div class="panel-heading"><div><p class="eyebrow">WORKFLOW CONCEPT</p><h2>Follow-up queue</h2><p>Review patterns, choose a safe response, and track follow-up.</p></div><a href="kiosk.html" class="small-link">View worker flow ↗</a></div><div class="case-list"><article class="case-card"><div class="case-main"><span class="case-id">CASE 01</span><h3>Working hours pattern</h3><p>A recurring working-hours signal is ready for context and review.</p></div><span class="case-status status-review">Needs review</span><button class="view-case" type="button" data-case="hours">Open case</button></article><article class="case-card"><div class="case-main"><span class="case-id">CASE 02</span><h3>Safety concern cluster</h3><p>Several safety concerns are ready for context and review.</p></div><span class="case-status status-open">In review</span><button class="view-case" type="button" data-case="safety">Open case</button></article><article class="case-card"><div class="case-main"><span class="case-id">CASE 03</span><h3>Payment timing</h3><p>A payment-timing concern is ready for a responsible response path.</p></div><span class="case-status status-review">Needs review</span><button class="view-case" type="button" data-case="pay">Open case</button></article></div></section>
+      <footer>Clock It · TEK830 Team 4 · Challenge 4 · Vietnam <span>TEK830 · Team 4 · Challenge 4 · Vietnam</span></footer>
+    </main>
   </div>
-  <select class="period" id="period">
-    <option>Last 30 days</option>
-    <option>Last 7 days</option>
-    <option>Last 3 months</option>
-  </select>
-</header>
-
-<main>
-  <div class="notice">
-    <strong>Prototype data:</strong> All figures shown on this dashboard are simulated examples for demonstration.
-    Individual workers are not identified.
-  </div>
-
-  <section class="cards">
-    <div class="card">
-      <div class="label">Feedback responses</div>
-      <div class="value">4,286</div>
-      <div class="change positive">↑ 12.4% vs previous period</div>
-    </div>
-    <div class="card">
-      <div class="label">Positive feedback</div>
-      <div class="value">68%</div>
-      <div class="change positive">↑ 4.1 percentage points</div>
-    </div>
-    <div class="card">
-      <div class="label">Negative feedback</div>
-      <div class="value">10%</div>
-      <div class="change negative">↑ 1.8 percentage points</div>
-    </div>
-    <div class="card">
-      <div class="label">Comments submitted</div>
-      <div class="value">1,173</div>
-      <div class="change neutral">27.4% of responses included text</div>
-    </div>
-  </section>
-
-  <div class="grid">
-    <section class="panel">
-      <h2>Worker sentiment over time</h2>
-      <div class="sub">Percentage of responses by smiley selection</div>
-      <div class="chart-wrap"><canvas id="trendChart"></canvas></div>
-    </section>
-
-    <section class="panel">
-      <h2>Overall sentiment</h2>
-      <div class="sub">Current selected period</div>
-      <div class="smiley-list">
-        <div class="smiley-row">
-          <div class="face">🙂</div>
-          <div><div class="bar"><div class="fill good"></div></div></div>
-          <strong>68%</strong>
-        </div>
-        <div class="smiley-row">
-          <div class="face">😐</div>
-          <div><div class="bar"><div class="fill okay"></div></div></div>
-          <strong>22%</strong>
-        </div>
-        <div class="smiley-row">
-          <div class="face">☹️</div>
-          <div><div class="bar"><div class="fill bad"></div></div></div>
-          <strong>10%</strong>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <section class="panel" style="margin-bottom:22px;">
-    <h2>Most frequently mentioned issues</h2>
-    <div class="sub">Based on optional written comments from workers</div>
-    <div class="filters">
-      <button class="active" onclick="setFilter(this)">All suppliers</button>
-      <button onclick="setFilter(this)">Working hours</button>
-      <button onclick="setFilter(this)">Safety</button>
-      <button onclick="setFilter(this)">Wages</button>
-      <button onclick="setFilter(this)">Workplace treatment</button>
-    </div>
-    <table>
-      <thead>
-        <tr><th>Issue</th><th>Mentions</th><th>Share of comments</th><th>Priority signal</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Excessive working hours</td><td>326</td><td>27.8%</td><td><span class="tag high">High</span></td></tr>
-        <tr><td>Workplace safety</td><td>284</td><td>24.2%</td><td><span class="tag high">High</span></td></tr>
-        <tr><td>Workplace treatment</td><td>241</td><td>20.5%</td><td><span class="tag medium">Medium</span></td></tr>
-        <tr><td>Wages / payment</td><td>188</td><td>16.0%</td><td><span class="tag medium">Medium</span></td></tr>
-        <tr><td>Other</td><td>134</td><td>11.4%</td><td><span class="tag low">Low</span></td></tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="grid">
-    <section class="panel">
-      <h2>Supplier comparison</h2>
-      <div class="sub">Aggregated feedback only; no individual worker information</div>
-      <div class="chart-wrap"><canvas id="supplierChart"></canvas></div>
-    </section>
-
-    <section class="panel">
-      <h2>Actionable insights</h2>
-      <div class="insights" style="display:flex; flex-direction:column;">
-        <div class="insight">
-          <strong>Safety reports increased</strong>
-          24.2% of written comments mention workplace safety.
-        </div>
-        <div class="insight">
-          <strong>Working hours need attention</strong>
-          Excessive hours are the most frequently mentioned issue.
-        </div>
-        <div class="insight">
-          <strong>Participation is growing</strong>
-          Feedback responses increased 12.4% compared with the previous period.
-        </div>
-      </div>
-    </section>
-  </section>
-</main>
-
-<footer>
-  IKEA Worker Feedback Prototype • Simulated data • Aggregated reporting
-</footer>
-
-<script>
-const labels = ['Week 1','Week 2','Week 3','Week 4'];
-new Chart(document.getElementById('trendChart'), {
-  type: 'line',
-  data: {
-    labels,
-    datasets: [
-      { label:'🙂 Positive', data:[63,65,67,68], tension:.3, borderWidth:3 },
-      { label:'😐 Neutral', data:[27,25,23,22], tension:.3, borderWidth:3 },
-      { label:'☹️ Negative', data:[10,10,10,10], tension:.3, borderWidth:3 }
-    ]
-  },
-  options: {
-    responsive:true, maintainAspectRatio:false,
-    scales:{ y:{min:0,max:100,ticks:{callback:v=>v+'%'}} }
-  }
-});
-
-new Chart(document.getElementById('supplierChart'), {
-  type:'bar',
-  data:{
-    labels:['Supplier A','Supplier B','Supplier C','Supplier D','Supplier E'],
-    datasets:[{
-      label:'Positive feedback (%)',
-      data:[78,72,64,59,76],
-      borderWidth:1
-    }]
-  },
-  options:{
-    responsive:true, maintainAspectRatio:false,
-    scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%'}}}
-  }
-});
-
-function setFilter(button) {
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  button.classList.add('active');
-}
-</script>
+  <dialog id="case-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close details" data-close>×</button><p class="eyebrow">CASE DETAILS</p><h2 id="dialog-title">Follow-up details</h2><p id="dialog-copy"></p><div class="dialog-steps"><b>Possible next steps to validate</b><ol><li>Check the pattern with worker-informed context.</li><li>Choose a safe, appropriate review route.</li><li>Record actions and check whether they helped.</li></ol></div><p class="dialog-note">Next steps depend on local context and worker input.</p></dialog>
+  <script src="dashboard.js"></script>
 </body>
 </html>
