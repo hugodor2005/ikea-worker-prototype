@@ -720,3 +720,88 @@ footer {
 }
 
 }
+
+/* Team fill-in placeholders: replace their content in index.html. */
+.draft-notice {
+  padding:12px max(5vw,24px);
+  background:#fff0c5;
+  border-bottom:1px solid #e2ca7d;
+  font-size:12px;
+  color:#604b1c;
+}
+.draft-notice strong { margin-right:10px; letter-spacing:.06em; }
+.placeholder-label {
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:5px;
+  background:#fff0c5;
+  color:#68501b;
+  font-size:10px;
+  line-height:1.4;
+  font-weight:700;
+  letter-spacing:.06em;
+}
+.fill-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+.fill-card,.completion-block,.diagram-slot,.logo-slot {
+  padding:24px;
+  border:1px dashed #b6a065;
+  border-radius:16px;
+  background:#fffdf6;
+}
+.fill-card h3,.completion-block h3,.diagram-slot h3 {
+  font:600 20px 'Space Grotesk',Arial,sans-serif;
+  margin:16px 0 12px;
+}
+.fill-card p,.completion-block p,.diagram-slot p,.logo-slot p { font-size:13px; }
+.fill-prompt { color:#655020; padding-left:12px; border-left:3px solid #e6c66f; }
+.fill-hint { color:var(--muted); font-size:12px!important; }
+.completion-block { margin-top:28px; }
+.assessment-scroll { overflow-x:auto; margin:20px 0; }
+.assessment-scroll:focus-visible { outline:3px solid var(--coral); outline-offset:3px; }
+.assessment-table { width:100%; min-width:840px; border-collapse:collapse; font-size:12px; }
+.assessment-table caption { text-align:left; color:var(--muted); padding-bottom:12px; font-size:11px; }
+.assessment-table th,.assessment-table td { padding:14px; text-align:left; vertical-align:top; border:1px solid #dfdacb; }
+.assessment-table thead th { background:#e8eee6; }
+.assessment-table tbody th { width:25%; background:#f3f3e9; }
+.assessment-table th small { display:block; margin-top:7px; color:var(--muted); font-weight:400; }
+.assessment-table td { width:25%; color:#655020; }
+.diagram-grid,.team-completion { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px; }
+.diagram-slot { margin:0; }
+.diagram-empty {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:200px;
+  padding:20px;
+  background:#f3f0e4;
+  border:1px dashed #c5b583;
+  border-radius:10px;
+}
+.diagram-empty strong { font-size:14px; color:#655020; }
+.diagram-empty p { margin:10px 0 0; color:var(--muted); }
+.diagram-slot figcaption { margin-top:13px; font-size:12px; color:#655020; }
+.logo-slot { display:flex; flex-direction:column; gap:16px; justify-content:center; }
+.logo-slot strong { font-size:17px; color:#655020; }
+.logo-slot p { margin:0; }
+.reference-list { display:grid; grid-template-columns:minmax(140px,.3fr) 1fr; gap:16px 20px; font-size:13px; margin:22px 0; }
+.reference-list dt { font-weight:700; }
+.reference-list dd { margin:0; padding-left:12px; border-left:3px solid #e6c66f; color:#655020; overflow-wrap:anywhere; }
+.journey-list { padding-left:20px; margin-bottom:0; font-size:13px; }
+.journey-list li { padding:7px 0; }
+.journey-list p { margin:6px 0; }
+.dark .fill-card,.dark .completion-block { background:#193c46; border-color:#8c8a63; }
+.dark .fill-prompt { color:#ffedbf; }
+.dark .fill-hint { color:#bfd0c9; }
+.dark .questions { margin-top:28px; }
+@media(max-width:1050px) {
+  .fill-grid { grid-template-columns:1fr; }
+  .links { gap:16px; }
+  .links a { font-size:12px; }
+}
+@media(max-width:720px) {
+  .diagram-grid,.team-completion { grid-template-columns:1fr; }
+  .reference-list { grid-template-columns:1fr; gap:8px; }
+  .reference-list dd { margin-bottom:12px; }
+  .fill-card,.completion-block,.diagram-slot,.logo-slot { padding:19px; }
+  .links { display:none; }
+}
