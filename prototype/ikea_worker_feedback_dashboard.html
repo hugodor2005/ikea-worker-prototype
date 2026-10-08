@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f1">
+  <title>Clock It | Manager overview prototype</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="dashboard-page">
+  <a class="skip-link" href="#main">Skip to overview</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="wordmark" href="../showcase-site/index.html"><span class="logo-dot">C</span><span>clock<span>it</span></span></a>
+      <div class="workspace-label">CONCEPT VIEW <span>VIETNAM</span></div>
+      <nav aria-label="Dashboard sections">
+        <a class="nav-link active" href="#overview"><span>⌂</span> Overview</a>
+        <a class="nav-link" href="#patterns"><span>◷</span> Worker signals</a>
+        <a class="nav-link" href="#follow-up"><span>↗</span> Follow-up</a>
+      </nav>
+      <div class="sidebar-bottom"><a href="../showcase-site/index.html">← About the concept</a></div>
+    </aside>
+    <main id="main" class="main-content">
+      <header class="topbar"><div><p class="eyebrow">CHALLENGE 4 · VIETNAM</p><h1>Worker voice overview</h1></div><div class="profile-chip"><span>TEK830</span><b>Team 4</b></div></header>
+      <div class="demo-notice" role="note"><strong>Example view.</strong> Figures below illustrate one possible reporting layout; no worker or supplier data is connected. Reports are prompts for review, not proof of conditions.</div>
+      <section id="overview" class="metric-grid" aria-label="Overview metrics">
+        <article class="metric-card"><div class="metric-top"><span>Feedback responses</span><span class="metric-icon blue">↗</span></div><strong>4,286</strong><p>Last 30 days</p><small>Responses submitted</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Participation rate</span><span class="metric-icon yellow">◎</span></div><strong>42%</strong><p>Of eligible shifts</p><small>Participation should be read with context</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Signals for review</span><span class="metric-icon coral">!</span></div><strong>12</strong><p>Open follow-ups</p><small>Cases awaiting review</small></article>
+        <article class="metric-card"><div class="metric-top"><span>Median first review</span><span class="metric-icon green">◷</span></div><strong>6 days</strong><p>Median time to first review</p><small>Review time does not mean resolved</small></article>
+      </section>
+      <section id="patterns" class="content-grid">
+        <article class="panel trend-panel"><div class="panel-heading"><div><p class="eyebrow">WEEKLY TREND</p><h2>Shift sentiment over time</h2><p>Share of submitted ratings</p></div><span class="period-pill">Last 30 days</span></div>
+          <div class="chart-legend"><span><i class="legend-good"></i>Good</span><span><i class="legend-okay"></i>Okay</span><span><i class="legend-hard"></i>Difficult</span></div>
+          <div class="chart-scroll"><svg class="trend-chart" viewBox="0 0 720 250" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Shift sentiment trend</title><desc id="chart-desc">Rating shares over six weeks.</desc><g class="grid-lines"><path d="M52 25H700M52 75H700M52 125H700M52 175H700M52 225H700"/><path d="M52 25V225M182 25V225M312 25V225M442 25V225M572 25V225M700 25V225"/></g><g class="axis-labels"><text x="13" y="30">100%</text><text x="23" y="80">75%</text><text x="23" y="130">50%</text><text x="23" y="180">25%</text><text x="37" y="230">0%</text><text x="45" y="246">W1</text><text x="175" y="246">W2</text><text x="305" y="246">W3</text><text x="435" y="246">W4</text><text x="565" y="246">W5</text><text x="690" y="246">W6</text></g><path class="area-good" d="M52 25 C100 35 136 34 182 39 S267 49 312 43 S401 46 442 38 S524 34 572 38 S652 33 700 30 L700 225 L52 225Z"/><path class="line-good" d="M52 48 C100 55 136 52 182 59 S267 67 312 63 S401 65 442 57 S524 51 572 57 S652 52 700 49"/><path class="line-okay" d="M52 145 C110 139 130 135 182 131 S260 126 312 130 S390 131 442 137 S525 139 572 133 S657 141 700 139"/><path class="line-hard" d="M52 190 C100 186 138 184 182 180 S270 179 312 183 S402 184 442 188 S525 186 572 183 S647 184 700 187"/><g class="points"><circle cx="52" cy="48" r="4"/><circle cx="182" cy="59" r="4"/><circle cx="312" cy="63" r="4"/><circle cx="442" cy="57" r="4"/><circle cx="572" cy="57" r="4"/><circle cx="700" cy="49" r="4"/></g></svg></div>
+
+        </article>
+        <article class="panel sentiment-panel"><div class="panel-heading"><div><p class="eyebrow">RATINGS</p><h2>Ratings submitted</h2><p>Share of submitted responses</p></div></div><div class="sentiment-row"><div class="sentiment-label"><span>☺</span> Good <b>68%</b></div><div class="track"><i class="fill fill-good" style="width:68%"></i></div></div><div class="sentiment-row"><div class="sentiment-label"><span>😐</span> Okay <b>22%</b></div><div class="track"><i class="fill fill-okay" style="width:22%"></i></div></div><div class="sentiment-row"><div class="sentiment-label"><span>☹</span> Difficult <b>10%</b></div><div class="track"><i class="fill fill-hard" style="width:10%"></i></div></div><div class="context-note"><b>Read with care</b><p>Ratings show only who chose to respond. They do not represent every worker.</p></div></article>
+      </section>
+      <section class="panel issue-panel"><div class="panel-heading"><div><p class="eyebrow">ISSUE SIGNALS</p><h2>Signals mentioned</h2><p>Categories raised in worker feedback</p></div></div><div class="filters" role="group" aria-label="Filter issue signals"><button class="filter active" type="button" data-filter="all" aria-pressed="true">All categories</button><button class="filter" type="button" data-filter="hours" aria-pressed="false">Working hours</button><button class="filter" type="button" data-filter="safety" aria-pressed="false">Safety</button><button class="filter" type="button" data-filter="pay" aria-pressed="false">Pay</button><button class="filter" type="button" data-filter="treatment" aria-pressed="false">Fair treatment</button></div><div class="table-scroll"><table><thead><tr><th>Signal category</th><th>Mentions</th><th>Share of comments</th><th>Review cue</th></tr></thead><tbody id="signal-rows"><tr data-category="hours"><td><span class="category-dot dot-hours"></span>Working hours</td><td>326</td><td>27.8%</td><td><span class="priority priority-high">Review promptly</span></td></tr><tr data-category="safety"><td><span class="category-dot dot-safety"></span>Workplace safety</td><td>284</td><td>24.2%</td><td><span class="priority priority-high">Review promptly</span></td></tr><tr data-category="treatment"><td><span class="category-dot dot-treatment"></span>Fair treatment</td><td>241</td><td>20.5%</td><td><span class="priority priority-medium">Review context</span></td></tr><tr data-category="pay"><td><span class="category-dot dot-pay"></span>Pay or payment timing</td><td>188</td><td>16.0%</td><td><span class="priority priority-medium">Review context</span></td></tr><tr data-category="other"><td><span class="category-dot dot-other"></span>Other concerns</td><td>134</td><td>11.4%</td><td><span class="priority priority-low">Explore pattern</span></td></tr></tbody></table></div></section>
+      <section id="follow-up" class="panel followup-panel"><div class="panel-heading"><div><p class="eyebrow">WORKFLOW CONCEPT</p><h2>Follow-up queue</h2><p>Review patterns, choose a safe response, and track follow-up.</p></div><a href="kiosk.html" class="small-link">View worker flow ↗</a></div><div class="case-list"><article class="case-card"><div class="case-main"><span class="case-id">CASE 01</span><h3>Working hours pattern</h3><p>A recurring working-hours signal is ready for context and review.</p></div><span class="case-status status-review">Needs review</span><button class="view-case" type="button" data-case="hours">Open case</button></article><article class="case-card"><div class="case-main"><span class="case-id">CASE 02</span><h3>Safety concern cluster</h3><p>Several safety concerns are ready for context and review.</p></div><span class="case-status status-open">In review</span><button class="view-case" type="button" data-case="safety">Open case</button></article><article class="case-card"><div class="case-main"><span class="case-id">CASE 03</span><h3>Payment timing</h3><p>A payment-timing concern is ready for a responsible response path.</p></div><span class="case-status status-review">Needs review</span><button class="view-case" type="button" data-case="pay">Open case</button></article></div></section>
+      <footer>Clock It · TEK830 Team 4 · Challenge 4 · Vietnam <span>TEK830 · Team 4 · Challenge 4 · Vietnam</span></footer>
+    </main>
+  </div>
+  <dialog id="case-dialog" aria-labelledby="dialog-title"><button class="dialog-close" type="button" aria-label="Close details" data-close>×</button><p class="eyebrow">CASE DETAILS</p><h2 id="dialog-title">Follow-up details</h2><p id="dialog-copy"></p><div class="dialog-steps"><b>Possible next steps to validate</b><ol><li>Check the pattern with worker-informed context.</li><li>Choose a safe, appropriate review route.</li><li>Record actions and check whether they helped.</li></ol></div><p class="dialog-note">Next steps depend on local context and worker input.</p></dialog>
+  <script src="dashboard.js"></script>
+</body>
+</html>
