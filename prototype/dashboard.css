@@ -126,17 +126,6 @@ a {
   color:#d6e5de;
   text-decoration:none
 }
-.demo-badge {
-  display:flex;
-  align-items:center;
-  gap:8px
-}
-.demo-badge i {
-  width:8px;
-  height:8px;
-  background:var(--yellow);
-  border-radius:50%
-}
 .main-content {
   margin-left:236px;
   max-width:1700px;
@@ -274,21 +263,7 @@ a {
   color:var(--muted);
   font-size:10px
 }
-.period-pill,.sample-label {
-  padding:6px 9px;
-  background:#f0f4ee;
-  border-radius:999px;
-  font-size:9px;
-  color:#56736a;
-  white-space:nowrap
-}
-.sample-label {
-  background:#fff2ca;
-  color:#705714;
-  letter-spacing:.06em;
-  font-weight:700
-}
-.chart-legend {
+.period-pill,.chart-legend {
   display:flex;
   gap:16px;
   justify-content:flex-end;
@@ -354,11 +329,6 @@ a {
   fill:var(--blue);
   stroke:white;
   stroke-width:2
-}
-.chart-footnote {
-  margin:2px 0 0;
-  color:#8b9894;
-  font-size:9px
 }
 .sentiment-panel {
   display:flex;
