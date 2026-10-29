@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.727
+This is Clock It, our prototype for IKEA's challenge
+
+00:00:03.777 --> 00:00:07.700
+on a fair and just transition across the value chain,
+
+00:00:08.200 --> 00:00:11.300
+focused on supplier factories in Vietnam.
+
+00:00:12.600 --> 00:00:14.795
+Problems like excessive overtime,
+
+00:00:14.845 --> 00:00:19.200
+unsafe conditions or delayed wages can build up between audits.
+
+00:00:19.900 --> 00:00:24.300
+Workers are the first to know, but raising concerns through management is hard.
+
+00:00:25.000 --> 00:00:31.900
+So our idea is simple: ask workers directly, at a moment they already go through every day.
+
+00:00:33.800 --> 00:00:40.500
+At the end of a shift, the worker clocks out on the factory's existing fingerprint scanner.
+
+00:00:41.500 --> 00:00:46.400
+Right next to it, a small tablet asks one optional question: how was your shift today?
+
+00:00:47.100 --> 00:00:49.300
+The answer is never linked to the fingerprint.
+
+00:00:50.600 --> 00:00:54.400
+If the shift went well, it takes one tap.
+
+00:00:55.600 --> 00:00:58.700
+The answer is saved, and the worker can head home.
+
+00:01:01.500 --> 00:01:06.800
+If the shift was okay or difficult, a few short yes-or-no questions appear:
+
+00:01:07.900 --> 00:01:13.200
+overtime, safety, pay, fair treatment, and anything else.
+
+00:01:14.100 --> 00:01:17.800
+Here, our worker flags too much overtime and adds a short note.
+
+00:01:18.600 --> 00:01:24.400
+Every question can be left blank, and the screen reminds workers not to include names.
+
+00:01:25.800 --> 00:01:31.300
+Large buttons and plain language keep it to about a minute. Then one tap to submit.
+
+00:01:32.700 --> 00:01:35.900
+And anyone who doesn't want to answer can simply skip.
+
+00:01:38.300 --> 00:01:39.600
+Nothing is saved.
+
+00:01:42.000 --> 00:01:45.630
+On IKEA's side, our primary user is Maria,
+
+00:01:45.680 --> 00:01:50.500
+the Sustainability and Compliance Manager for Vietnam.
+
+00:01:53.000 --> 00:01:56.400
+Her dashboard brings the feedback together:
+
+00:01:56.900 --> 00:02:00.901
+how many responses came in, the participation rate,
+
+00:02:00.951 --> 00:02:05.400
+open signals, and how quickly cases get a first review.
+
+00:02:06.200 --> 00:02:11.000
+She can follow how shift ratings change week by week.
+
+00:02:12.600 --> 00:02:15.792
+Since ratings only reflect those who chose to answer,
+
+00:02:15.842 --> 00:02:18.900
+the dashboard reminds her to read them with care.
+
+00:02:21.600 --> 00:00:24.650
+Concerns are grouped into categories,
+
+00:00:24.700 --> 00:02:31.300
+so she can filter by working hours or safety and see which issues keep coming back.
+
+00:02:32.400 --> 00:02:36.900
+Recurring patterns become cases in a follow-up queue.
+
+00:02:38.200 --> 00:02:40.700
+Opening a case shows the next steps:
+
+00:02:41.200 --> 00:02:44.550
+check the pattern with worker-informed context,
+
+00:02:44.600 --> 00:02:50.200
+choose a safe way to respond, and record whether the action actually helped.
+
+00:02:50.900 --> 00:02:55.350
+To be clear about what's real: the worker flow works today
+
+00:02:55.400 --> 00:03:01.500
+and stores answers only in the browser, while the dashboard shows example data.
+
+00:03:04.200 --> 00:03:07.950
+Next, we want a Vietnamese version with audio guidance
+
+00:03:08.000 --> 00:03:11.000
+and a small pilot in one or two factories.
+
+00:03:12.600 --> 00:03:17.200
+Clock It: giving workers a voice, and IKEA earlier signals to act on.

@@ -765,3 +765,18 @@ footer {
   .info-card,.panel,.logo-card { padding:19px; }
   .links { display:none; }
 }
+
+/* ---- project video ---- */
+.video-frame { margin:0; max-width:1100px; }
+.video-frame video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#0c1a1f; border-radius:18px; box-shadow:0 24px 70px #0006; }
+.video-frame video:focus-visible { outline:3px solid var(--yellow); outline-offset:4px; }
+.video-frame figcaption { margin-top:14px; }
+.transcript { max-width:1100px; margin-top:26px; border:1px solid #8c8a63; border-radius:var(--radius); background:#193c46; color:#e8f0ec; }
+.transcript summary { cursor:pointer; padding:18px 24px; font:600 18px 'Space Grotesk',Arial,sans-serif; }
+.transcript summary:focus-visible { outline:3px solid var(--yellow); outline-offset:-3px; border-radius:var(--radius); }
+.transcript-body { padding:0 24px 8px; columns:2; column-gap:40px; font-size:14px; }
+.transcript-body p { margin:0 0 16px; break-inside:avoid; }
+.transcript-body b { color:var(--yellow); font-variant-numeric:tabular-nums; margin-right:6px; }
+.transcript-body i { font-style:normal; font-weight:600; }
+.video-links { display:flex; gap:28px; flex-wrap:wrap; margin-top:22px; }
+@media(max-width:850px) { .transcript-body { columns:1; } }
