@@ -780,3 +780,10 @@ footer {
 .transcript-body i { font-style:normal; font-weight:600; }
 .video-links { display:flex; gap:28px; flex-wrap:wrap; margin-top:22px; }
 @media(max-width:850px) { .transcript-body { columns:1; } }
+
+/* ---- presentation slides ---- */
+.slides-frame { margin:0; max-width:1100px; }
+.slides-frame object { display:block; width:100%; height:min(78vh,760px); min-height:min(420px,78vh); border-radius:18px; background:#0c1a1f; color:#e8f0ec; box-shadow:0 24px 70px #0006; }
+@media(max-width:850px) { .slides-frame object { height:70vh; min-height:360px; } }
+.slides-frame object p { padding:24px; }
+.slides-frame object a { color:var(--yellow); text-decoration:underline; }
