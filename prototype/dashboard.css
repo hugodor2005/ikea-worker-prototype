@@ -58,6 +58,7 @@ p, h1, h2, h3 { margin-top: 0; }
 }
 .skip-link:focus { top: 12px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.sidebar :focus-visible { outline-color: var(--accent-soft); }
 
 .sidebar {
   position: fixed;
@@ -72,7 +73,7 @@ p, h1, h2, h3 { margin-top: 0; }
 .wordmark {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   padding: 0 8px;
   color: var(--dark-text);
   font: 600 20px/1 var(--font-display);
@@ -105,7 +106,7 @@ p, h1, h2, h3 { margin-top: 0; }
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 9px 10px;
+  padding: 8px 10px;
   border-radius: 8px;
   color: var(--dark-text-2);
   font-size: 14px;

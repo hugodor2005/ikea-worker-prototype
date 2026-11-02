@@ -56,6 +56,7 @@ button, textarea { font: inherit; }
 }
 .skip-link:focus { top: 12px; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.app-header :focus-visible { outline-color: var(--accent-soft); }
 
 #app-container { min-height: 100vh; display: flex; flex-direction: column; }
 .app-header {
@@ -71,7 +72,7 @@ button, textarea { font: inherit; }
 .wordmark {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
   color: var(--dark-text);
   font: 600 20px/1 var(--font-display);
   letter-spacing: -0.02em;
