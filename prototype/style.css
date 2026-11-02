@@ -105,11 +105,13 @@ button, textarea { font: inherit; }
 }
 .eyebrow::before {
   content: "";
-  width: 20px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
   flex: none;
-  background-image: radial-gradient(circle at 3px 4px, currentColor 2px, transparent 2.4px);
-  background-size: 5px 8px;
+  margin-right: 16px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 6px 0 0 currentColor, 12px 0 0 currentColor, 18px 0 0 currentColor;
   opacity: 0.9;
 }
 .greeting {
