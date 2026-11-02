@@ -6,7 +6,7 @@ Live site: <https://clock-it.tech/>
 
 ## Structure
 
-- `index.html`, `style.css` – showcase website (served from the repo root by GitHub Pages)
+- `index.html`, `style.css`, `sections.css`, `responsive.css` – showcase website (served from the repo root by GitHub Pages). `style.css` holds tokens, navigation, hero and shared controls; `sections.css` holds the content sections; `responsive.css` holds the breakpoint overrides.
 - `prototype/kiosk.html` – worker feedback kiosk
 - `prototype/ikea_worker_feedback_dashboard.html` – manager overview
 - `CNAME`, `robots.txt`, `sitemap.xml`, `favicon.svg` – hosting and SEO files

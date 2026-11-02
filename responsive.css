@@ -1,0 +1,61 @@
+@media (max-width: 1080px) {
+  .links { gap: 16px; }
+  .links a { font-size: 13px; }
+  .hero { gap: 32px; }
+  .kiosk { width: min(310px, 100%); }
+  .shift-card { width: 240px; }
+}
+@media (max-width: 960px) {
+  .links { display: none; }
+  .nav-menu { display: block; }
+  .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 56px; padding-bottom: 64px; }
+  .hero-copy { max-width: 620px; }
+  .hero-art { justify-content: center; min-height: 470px; margin-top: 8px; }
+  .shift-card { left: 8%; top: 28px; }
+  .info-grid, .effects, .questions { grid-template-columns: 1fr; gap: 20px; }
+  .journey-list li { grid-template-columns: 1fr; gap: 6px; }
+}
+@media (max-width: 760px) {
+  h2 br { display: none; }
+  .section { padding-top: 72px; padding-bottom: 72px; }
+  .section > .intro { margin-bottom: 36px; }
+  .cards, .steps, .prototype-grid, .measures, .team-extra { grid-template-columns: 1fr; }
+  .steps { gap: 0; }
+  .steps article { padding: 20px 0; border-bottom: 1px solid var(--dark-line); }
+  .steps article:last-child { border-bottom: 0; padding-bottom: 0; }
+  .team { grid-template-columns: repeat(2, 1fr); }
+  .reference-list { grid-template-columns: 1fr; gap: 0; }
+  .reference-list dt { padding-bottom: 4px; border-top: 0; }
+  .reference-list dd { padding-top: 0; }
+  .transcript-body { columns: 1; }
+  .assessment-scroll { margin-inline: -20px; padding-inline: 20px; }
+}
+@media (max-width: 560px) {
+  .nav { height: 64px; gap: 12px; }
+  .nav-actions { gap: 8px; }
+  .nav .button { padding: 9px 11px; font-size: 13px; }
+  .nav .button .icon { display: none; }
+  .nav-menu summary { padding: 8px 10px; }
+  .hero { padding-top: 40px; padding-bottom: 48px; }
+  h1 { font-size: 36px; }
+  .hero-art { min-height: 430px; }
+  .shift-card { display: none; }
+  .kiosk { width: min(300px, 100%); }
+  .kiosk-screen { min-height: 410px; padding: 20px 18px 14px; }
+  .actions { gap: 16px; }
+  .cards article { padding: 18px 0 0; }
+  .effects article, .prototype, .measures, .panel, .info-card { padding: 20px; }
+  .info-grid .info-card { padding: 18px 0 0; }
+  .team { grid-template-columns: 1fr; }
+  .dash-stats { gap: 8px; }
+  .dash-stats strong { font-size: 18px; }
+  .preview-faces { flex-wrap: wrap; }
+  footer { align-items: flex-start; flex-direction: column; gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+@media (max-width: 340px) {
+  .nav .button { display: none; }
+}

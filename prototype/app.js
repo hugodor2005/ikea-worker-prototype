@@ -40,6 +40,7 @@ function showThanks(message) {
   document.getElementById('form-scroll-area').classList.add('hidden');
   document.getElementById('screen-thanks').classList.remove('hidden');
   document.getElementById('thanks-copy').textContent = message;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
   clearTimeout(resetTimer);
   resetTimer = setTimeout(resetKiosk, 12000);
 }
@@ -86,5 +87,5 @@ function resetKiosk() {
   document.getElementById('detailed-questions').classList.add('hidden');
   document.getElementById('screen-thanks').classList.add('hidden');
   document.getElementById('form-scroll-area').classList.remove('hidden');
-  document.getElementById('form-scroll-area').scrollTop = 0;
+  window.scrollTo(0, 0);
 }
